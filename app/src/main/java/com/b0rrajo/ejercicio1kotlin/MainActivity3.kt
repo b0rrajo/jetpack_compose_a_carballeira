@@ -17,6 +17,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -35,8 +36,8 @@ class MainActivity3: ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             Ejercicio1kotlinTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Tarjeta(modifier = Modifier.padding(innerPadding))
+                Surface(modifier = Modifier.fillMaxSize()) {
+                    Tarjeta(modifier = Modifier.fillMaxSize())
                 }
             }
         }
@@ -79,30 +80,45 @@ class MainActivity3: ComponentActivity() {
             }
             Column(modifier = modifier
                 .fillMaxWidth()
-                .weight(1.7f)
-                .background(Color(199, 228, 206)),
+                .weight(1.6f)
+                .background(Color(249, 236, 191)),
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.spacedBy(10.dp, Alignment.CenterVertically)
             ){
                 Row(modifier = modifier){
                     Text(text = "\n" +
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam feugiat vel neque vitae fringilla. Morbi eu elit ac neque cursus suscipit id ut enim. Sed lacus quam, ultricies vitae metus vel, auctor rutrum nisi. In hac habitasse platea dictumst. Vestibulum at est ac est.", color = Color.Black, fontSize = 12.sp, modifier = Modifier.fillMaxWidth()
-                        .padding())
+                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam feugiat vel neque vitae fringilla. Morbi eu elit ac neque cursus suscipit id ut enim. Sed lacus quam, ultricies vitae metus vel, auctor rutrum nisi. In hac habitasse platea dictumst. Vestibulum at est ac est.", color = Color.Black, fontSize = 16.sp, modifier = Modifier.fillMaxWidth()
+                        .padding(20.dp))
                 }
             }
-            Column(modifier = modifier
+            Row(modifier = modifier
                 .fillMaxWidth()
-                .weight(0.3f)
-                .background(Color(199, 228, 206)),
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.spacedBy(10.dp, Alignment.CenterVertically)
+                .weight(0.4f)
+                .background(Color(254, 194, 194)),
+                horizontalArrangement = Arrangement.spacedBy(10.dp, Alignment.CenterHorizontally),
+                verticalAlignment = Alignment.CenterVertically
             ){
-                Row(modifier = modifier
+                Row(modifier = Modifier
+                    .padding(40.dp)
+                    .width(100.dp)
+                    .height(40.dp)
+                    .border(
+                        width = 3.dp,
+                        color = Color.Black,
+                    ) // Borde
 
                 ){
                 }
-                Row(modifier = modifier){
-                    Text(text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed", color = Color.Black, fontSize = 12.sp)
+                Row(modifier = Modifier
+                    .padding(40.dp)
+                    .width(100.dp)
+                    .height(40.dp)
+                    .border(
+                        width = 3.dp,
+                        color = Color.Black,
+                    ) // Borde
+                ){
+
                 }
             }
         }
