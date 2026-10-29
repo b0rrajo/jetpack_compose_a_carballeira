@@ -55,22 +55,17 @@ class MainActivity4: ComponentActivity() {
     fun Tarjeta(modifier: Modifier = Modifier) {
         val contexto = LocalContext.current
         Column(
-            modifier = Modifier.fillMaxSize(),
+            modifier = modifier.fillMaxSize(),
             verticalArrangement = Arrangement.Center,
         ){
             Box(
-                modifier = modifier
+                modifier = Modifier
                     .padding(20.dp)
-                    .background(Color.White)
                     .fillMaxWidth()
                     .height(180.dp)
-                    .shadow(elevation = 3.dp, RoundedCornerShape(20.dp))
-                    .clip(RoundedCornerShape(20.dp)) // Bordes redondeados
-                    .border(
-                        width = 3.dp,
-                        color = Color.Transparent,
-                        shape = RoundedCornerShape(20.dp)
-                    ) // Borde
+                    .shadow(elevation = 3.dp, shape = RoundedCornerShape(20.dp))
+                    .clip(RoundedCornerShape(20.dp))
+                    .background(Color.White)
             ){
                 Column(
                     modifier = Modifier.fillMaxSize()
@@ -78,7 +73,7 @@ class MainActivity4: ComponentActivity() {
                     verticalArrangement = Arrangement.Center,
                 ){
                     Box(
-                        modifier = modifier
+                        modifier = Modifier
                             .fillMaxWidth()
                             .weight(0.25f)
                     ){
@@ -86,7 +81,7 @@ class MainActivity4: ComponentActivity() {
                             .padding(horizontal = 6.dp, vertical = 8.dp))
                     }
                     Box(
-                        modifier = modifier
+                        modifier = Modifier
                             .fillMaxWidth()
                             .weight(0.5f)
                     ){
@@ -134,7 +129,7 @@ class MainActivity4: ComponentActivity() {
                         }
                     }
                     Box(
-                        modifier = modifier
+                        modifier = Modifier
                             .fillMaxWidth()
                             .weight(0.25f)
                     ){
