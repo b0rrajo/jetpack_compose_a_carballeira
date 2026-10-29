@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -13,10 +14,12 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Scaffold
@@ -28,6 +31,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -50,6 +54,22 @@ class MainActivity5 : ComponentActivity() {
         }
     }
 }
+@Composable
+fun MaterialAvatar(drawableId: Int) {
+    Image(
+        painter = painterResource(id = drawableId),
+        contentDescription = "Avatar de usuario",
+        modifier = Modifier
+            .size(80.dp)
+            .clip(CircleShape)
+            .border(
+                width = 2.dp,
+                color = MaterialTheme.colorScheme.primary,
+                shape = CircleShape
+            )
+    )
+}
+
 
 @Composable
 fun LoginScreen(modifier: Modifier = Modifier) {
@@ -63,11 +83,9 @@ fun LoginScreen(modifier: Modifier = Modifier) {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        // Avatar Icon
-        Image(
-            painter = painterResource(id = R.drawable.ic_person),
-            contentDescription = "Avatar de usuario",
-            modifier = Modifier.size(120.dp)
+        
+        MaterialAvatar(
+            drawableId = R.drawable.ic_person
         )
 
         Spacer(modifier = Modifier.height(28.dp))
